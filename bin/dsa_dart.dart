@@ -1,49 +1,64 @@
 import 'package:dsa_dart/linked_list.dart';
+import 'package:dsa_dart/queue.dart';
 import 'package:dsa_dart/stack.dart';
 
 void main(List<String> arguments) {
-  // print(list);
-  // list.reverse();
-  // print(list);
+  final queue = QueueList<int>();
 
-  var raySolutionTime = [];
-  var mySolutionTime = [];
-
-  for (var i = 0; i<5; i++) {
-    final list = LinkedList<int>();
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.append(3);
-    list.append(5);
-    list.append(3);
-    list.append(5);
-    final start = DateTime.now();
-    list.removeAll(3);
-    final end = DateTime.now();
-    raySolutionTime.add(end.difference(start).inMicroseconds);
-    print(list);
-  }
-
-  for (var i = 0; i<5; i++) {
-    final list = LinkedList<int>();
-    list.append(1);
-    list.append(2);
-    list.append(3);
-    list.append(3);
-    list.append(5);
-    list.append(3);
-    list.append(5);
-    final start = DateTime.now();
-    list.removeAllOccurrences(3);
-    final end = DateTime.now();
-    mySolutionTime.add(end.difference(start).inMicroseconds);
-    print(list);
-  }
-
-  print('RayWenderlich time: ${raySolutionTime.toString()}');
-  print('My time: ${mySolutionTime.toString()}');
+  queue.enqueue(1);
+  queue.enqueue(2);
+  queue.enqueue(3);
+  queue.enqueue(4);
+  queue.enqueue(5);
+  queue.dequeue();
+  queue.enqueue(8);
+  print(queue);
 }
+
+
+// void main(List<String> arguments) {
+//   // print(list);
+//   // list.reverse();
+//   // print(list);
+//
+//   var raySolutionTime = [];
+//   var mySolutionTime = [];
+//
+//   for (var i = 0; i<5; i++) {
+//     final list = LinkedList<int>();
+//     list.append(1);
+//     list.append(2);
+//     list.append(3);
+//     list.append(3);
+//     list.append(5);
+//     list.append(3);
+//     list.append(5);
+//     final start = DateTime.now();
+//     list.removeAll(3);
+//     final end = DateTime.now();
+//     raySolutionTime.add(end.difference(start).inMicroseconds);
+//     print(list);
+//   }
+//
+//   for (var i = 0; i<5; i++) {
+//     final list = LinkedList<int>();
+//     list.append(1);
+//     list.append(2);
+//     list.append(3);
+//     list.append(3);
+//     list.append(5);
+//     list.append(3);
+//     list.append(5);
+//     final start = DateTime.now();
+//     list.removeAllOccurrences(3);
+//     final end = DateTime.now();
+//     mySolutionTime.add(end.difference(start).inMicroseconds);
+//     print(list);
+//   }
+//
+//   print('RayWenderlich time: ${raySolutionTime.toString()}');
+//   print('My time: ${mySolutionTime.toString()}');
+// }
 
 
 
