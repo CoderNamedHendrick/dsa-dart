@@ -16,6 +16,7 @@ class LinkedList<E> {
 
   bool get isEmpty => head == null;
 
+  // inserting operations
   void push (E value) {
     head = Node(value: value, next: head);
     tail ??= head;
@@ -50,6 +51,38 @@ class LinkedList<E> {
 
     node.next = Node(value: value, next: node.next);
     return node.next!;
+  }
+
+  // removal operations
+  E? pop() {
+    final value = head?.value;
+    head = head?.next;
+    if (isEmpty) {
+      tail = null;
+    }
+    return value;
+  }
+
+  E? removeLast() {
+    if (head?.next == null) return pop();
+
+    var current = head;
+    while(current!.next != tail) {
+      current = current.next;
+    }
+    final value = tail?.value;
+    tail = current;
+    tail?.next = null;
+    return value;
+  }
+
+  E? removeAfter(Node<E> node) {
+    final value = node.next?.value;
+    if (node.next == null){
+      tail = node;
+    }
+    node.next = node.next?.next;
+    return value;
   }
 
   @override

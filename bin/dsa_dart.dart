@@ -9,15 +9,15 @@ void main(List<String> arguments) {
 
   print('Before: $list');
 
-  var middleNode = list.nodeAt(1)!;
-
-  list.insertAfter(middleNode, 42);
+  final firstNode = list.nodeAt(0)!;
+  var removedValue = list.removeAfter(firstNode);
 
   print('After: $list');
+  print('Popped value: $removedValue');
 }
 
 // void main(List<String> arguments) {
-//   const list = ['S', 'M', 'O', 'K', 'E'];
+//   const list = ['S', 'M', 'O', 'K', 'E'];K
 //   final string = 'h((e))llo(world)()';
 //   print(balanceTheParentheses(string));
 //   // final stack = Stack<int>();
