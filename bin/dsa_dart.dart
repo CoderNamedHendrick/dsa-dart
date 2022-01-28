@@ -7,13 +7,17 @@ void main(List<String> arguments) {
   list.append(2);
   list.append(3);
 
-  print('Before: $list');
+  // print('Before: $list');
+  //
+  // final firstNode = list.nodeAt(0)!;
+  // var removedValue = list.removeAfter(firstNode);
+  //
+  // print('After: $list');
+  // print('Popped value: $removedValue');
 
-  final firstNode = list.nodeAt(0)!;
-  var removedValue = list.removeAfter(firstNode);
-
-  print('After: $list');
-  print('Popped value: $removedValue');
+  for(final element in list) {
+    print(element);
+  }
 }
 
 // void main(List<String> arguments) {
