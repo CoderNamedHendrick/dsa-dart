@@ -2,23 +2,50 @@ import 'package:dsa_dart/linked_list.dart';
 import 'package:dsa_dart/stack.dart';
 
 void main(List<String> arguments) {
-  final list = LinkedList<int>();
-  list.append(1);
-  list.append(2);
-  list.append(3);
+  // print(list);
+  // list.reverse();
+  // print(list);
 
-  // print('Before: $list');
-  //
-  // final firstNode = list.nodeAt(0)!;
-  // var removedValue = list.removeAfter(firstNode);
-  //
-  // print('After: $list');
-  // print('Popped value: $removedValue');
+  var raySolutionTime = [];
+  var mySolutionTime = [];
 
-  for(final element in list) {
-    print(element);
+  for (var i = 0; i<5; i++) {
+    final list = LinkedList<int>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(3);
+    list.append(5);
+    list.append(3);
+    list.append(5);
+    final start = DateTime.now();
+    list.removeAll(3);
+    final end = DateTime.now();
+    raySolutionTime.add(end.difference(start).inMicroseconds);
+    print(list);
   }
+
+  for (var i = 0; i<5; i++) {
+    final list = LinkedList<int>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(3);
+    list.append(5);
+    list.append(3);
+    list.append(5);
+    final start = DateTime.now();
+    list.removeAllOccurrences(3);
+    final end = DateTime.now();
+    mySolutionTime.add(end.difference(start).inMicroseconds);
+    print(list);
+  }
+
+  print('RayWenderlich time: ${raySolutionTime.toString()}');
+  print('My time: ${mySolutionTime.toString()}');
 }
+
+
 
 // void main(List<String> arguments) {
 //   const list = ['S', 'M', 'O', 'K', 'E'];K
@@ -31,34 +58,34 @@ void main(List<String> arguments) {
 //   // stack.push(4);
 //
 // }
-//
-// bool balanceTheParentheses(String string) {
-//   final parenthesesStack = Stack();
-//   final open = '('.codeUnitAt(0);
-//   final close = ')'.codeUnitAt(0);
-//
-//   for(var codeUnit in string.codeUnits) {
-//
-//     if (codeUnit == open) {
-//       parenthesesStack.push(codeUnit);
-//     } else if (codeUnit == close) {
-//       if (parenthesesStack.isEmpty){
-//         return false;
-//       } else {
-//         parenthesesStack.pop();
-//       }
-//     }
-//   }
-//   return parenthesesStack.isEmpty;
-// }
-//
-// void reverseList(List list){
-//   final start = DateTime.now();
-//   final stack = Stack.of(list);
-//   for(final item in list ){
-//     print(stack.pop());
-//   }
-//   final end = DateTime.now();
-//   final change = end.difference(start);
-//   print('Time taken: ${change.inMilliseconds} millisecs');
-// }
+
+// stack challenges
+bool balanceTheParentheses(String string) {
+  final parenthesesStack = Stack();
+  final open = '('.codeUnitAt(0);
+  final close = ')'.codeUnitAt(0);
+
+  for (var codeUnit in string.codeUnits) {
+    if (codeUnit == open) {
+      parenthesesStack.push(codeUnit);
+    } else if (codeUnit == close) {
+      if (parenthesesStack.isEmpty) {
+        return false;
+      } else {
+        parenthesesStack.pop();
+      }
+    }
+  }
+  return parenthesesStack.isEmpty;
+}
+
+void reverseList(List list) {
+  final start = DateTime.now();
+  final stack = Stack.of(list);
+  for (final item in list) {
+    print(stack.pop());
+  }
+  final end = DateTime.now();
+  final change = end.difference(start);
+  print('Time taken: ${change.inMilliseconds} millisecs');
+}
